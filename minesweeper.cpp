@@ -9,22 +9,21 @@
 #include <set>
 #include <stdlib.h>
 using namespace std; 
-#define MINE_VAL 5
+#define ROWS 10
+#define COLS 10
+#define NUM_MINES 4
 struct loc{
 	int x, y;
 	loc(int x_, int y_): x(x_), y(y_){ }
-	bool operator==(const loc& other){
-		return other.x==this->x && other.y==this->y;
-	}
-	bool operator<(const loc& rhs) const{
-		return rhs.x<this->x;
-	}
+	bool operator==(const loc& other){ return other.x==this->x && other.y==this->y; }
+	bool operator<(const loc& rhs) const{ return rhs.x<this->x; }
 };
 class sq{
 private:
 	int v;
 	bool shown = false;
 	char make_char[10] = {'0', '1', '2', '3', '4', '$' };
+	const int MINE_VAL = 5;
 public:
 	sq(int x_):v(x_){ }
 	bool isMine(){ return v==MINE_VAL; }
@@ -193,5 +192,5 @@ public:
 };
 
 int main(){
-	MineSweeper(4,5,3);
+	MineSweeper(ROWS,COLS,NUM_MINES);
 }
