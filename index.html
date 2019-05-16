@@ -22,11 +22,11 @@
 		<div id="minesweeper_container">
 		</div>
 		<div id="buttonsContainer">
-			<button type="button" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="restart()">
+			<button type="button" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="restart()" data-toggle="tooltip" data-placement="top" title="New Game" style="width:60px;margin-right:10px;">
      			<i class="material-icons mr-1" style="width:100%;vertical-align:middle;margin-top:-3px;">refresh</i>
  			</button>
- 			<button type="button" id="giveUpButton" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="giveUp()">
-     			<i class="material-icons mr-1" style="width:100%;vertical-align:middle;margin-top:-3px;">refresh</i>
+ 			<button type="button" id="giveUpButton" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="giveUp()" data-toggle="tooltip" data-placement="top" title="Give up" style="width:60px;">
+     			<span class="fa fa-sad-cry" style="width:100%;vertical-align:middle;margin-top:-3px;font-size:23px;"></span>
  			</button>
 		</div>
 		<div id="gameOver" class="overlay large-msg">
@@ -45,8 +45,8 @@
 					<div class="top-right icon-button" onclick="closeInfoContainer();" style="z-index:1000;"><span class="material-icons">close</span></div>
 					<h3 style="margin-top:5px;">Instructions</h3>
 					<hr />
-					<div style="text-align:center">
-
+					<div style="text-align:left">
+						Try to clear the board without tripping any mines. <br/> Squares bordering mines will say how many mines they border.
 					</div>
 					<br />
 					<h3 style="margin-top:10px;">About</h3>

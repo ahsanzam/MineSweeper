@@ -131,6 +131,7 @@ document.onkeydown = function (e) {
 	console.log("keydown",e)
 }
 function giveUp(fromGameEnd){
+	$("#giveUpButton").tooltip('hide');
 	gameOver=true;
 	for(var k=0; k<num_rows; k++)
 		for(var j=0; j<num_cols; j++)
@@ -156,6 +157,7 @@ function runGameEnd(){
 function closeGameOver(){ $("#gameOver").fadeOut(); }
 function showInfo(){ $("#infoContainer").fadeIn(); }
 function closeInfoContainer(){ $("#infoContainer").fadeOut(); }
+window.onresize = function(){ location.reload(); }
 restart();
 $('[data-toggle="tooltip"]').tooltip({animation: true});
 //these gifs are awesome! https://qotoqot.com/sad-animations/
