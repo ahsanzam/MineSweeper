@@ -17,17 +17,20 @@
 <body>
 	<div class="loading-cover"> </div>
 	<div id="contentContainer">
-		<div class="top-right icon-button" onclick="showInfo();" id="infoButton" style="top:25px;"><span class="material-icons">help_outline</span></div>
-		<h3 style="margin-top:25px; margin-bottom:25px;">MineSweeper</h3>
-		<div id="minesweeper_container">
-		</div>
-		<div id="buttonsContainer">
-			<button type="button" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="restart()" data-toggle="tooltip" data-placement="top" title="New Game" style="width:60px;margin-right:10px;">
-     			<i class="material-icons mr-1" style="width:100%;vertical-align:middle;margin-top:-3px;">refresh</i>
- 			</button>
- 			<button type="button" id="giveUpButton" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="giveUp()" data-toggle="tooltip" data-placement="top" title="Give up" style="width:60px;">
-     			<span class="fa fa-sad-cry" style="width:100%;vertical-align:middle;margin-top:-3px;font-size:23px;"></span>
- 			</button>
+		<div id="gameContainer">
+			<div class="top-right icon-button" onclick="showInfo();" id="infoButton" style="top:5px;"><span class="material-icons">help_outline</span></div>
+			<h3 style="margin-top:25px; margin-bottom:25px;">MineSweeper</h3>
+			<div id="minesweeper_container">
+			</div>
+			<div class="progress-bar-container"><div id="minesweeper-progress"></div></div>
+			<div id="buttonsContainer">
+				<button type="button" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="restart()" data-toggle="tooltip" data-placement="top" title="New Game" style="width:60px;margin-right:10px;">
+	     			<i class="material-icons mr-1" style="width:100%;vertical-align:middle;margin-top:-3px;">refresh</i>
+	 			</button>
+	 			<button type="button" id="giveUpButton" class="btn btn-primary justify-content-center align-content-between" id="GameStartButton" onclick="giveUp()" data-toggle="tooltip" data-placement="top" title="Give up" style="width:60px;">
+	     			<span class="fa fa-sad-cry" style="width:100%;vertical-align:middle;margin-top:-3px;font-size:23px;"></span>
+	 			</button>
+			</div>
 		</div>
 		<div id="gameOver" class="overlay large-msg">
 			<div class="center-in-container">
@@ -52,7 +55,7 @@
 					<h3 style="margin-top:10px;">About</h3>
 					<hr />
 					<div style="width:95%; text-align:justify;">
-						Created by Ahsan Zaman on May 5, 2019. Plain HTML, CSS, JS, and JQuery were used. <a>Github</a>
+						Created by Ahsan Zaman. Plain HTML, CSS, JS, and JQuery were used. <a href="https://github.com/ahsanzam/MineSweeper" target="_blank">GitHub <span class="material-icons" style="font-size:1em;">launch</span></a>
 					</div>
 					<button type="button" class="btn btn-info" style="width:30%; margin-top:15px;" onclick="closeInfoContainer()">Ok</button>
 				</div>

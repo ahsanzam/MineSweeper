@@ -94,7 +94,8 @@ body{
   margin:auto;
   width:auto;
   border:1px solid black;
-  width:85vw;
+  width:100%;
+  border-bottom:0;
 }
 #buttonsContainer{
   margin:auto;
@@ -111,7 +112,7 @@ h3{
   text-align:center;
 }
 #contentContainer{
-  margin-top:10px;
+  margin:auto;
 }
 #gameOver{
   background-image:url('./assets/confetti.gif');
@@ -166,4 +167,22 @@ h3{
   width:100%;
   background-color:white;
   z-index:1000;
+}
+.progress-bar-container{
+  height:5px;
+  width:100%;
+  border-top:1px solid #F19A3E;
+  position:relative;
+}
+.progress-bar-container > div{
+  background-color:#F19A3E;
+  width:0;
+  height:100%;
+  position:absolute;
+  top:0; left:0;
+}
+#gameContainer{
+  margin:auto;
+  margin-top:10px;
+  position:relative;
 }

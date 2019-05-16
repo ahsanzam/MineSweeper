@@ -3,7 +3,7 @@ var height = 25,
 	width = 25, 
 	num_cols=Math.floor(($(window).width()*.8)/width), 
 	num_rows=Math.floor(($(window).height()*.7)/height),
-	totalBmbs=Math.floor(.2 * num_rows * num_cols);
+	totalBmbs=Math.floor(.15 * num_rows * num_cols);
 var sq_arr, 
 	gameOver, 
 	gameWon, 
@@ -21,6 +21,7 @@ class sq{
 		this.el.click(()=>{
 			if(gameOver) return;
 			this.reveal();
+			updateProgressBar();
 		});
 	}
 	setLeftSq(s) { 	this.leftSq = s;	}
@@ -62,9 +63,9 @@ class sq{
 			}
 			else
 				this.el.append($(`<span>${this.borderingBmbs}</span>`));
+			nonBmbsFound++;
 		}
 		this.el.css("background-color","#95AFBA");
-		nonBmbsFound++;
 		if(!gameOver && nonBmbsFound===(num_rows*num_cols-totalBmbs)){
 			gameWon=true;
 			runGameEnd();
@@ -86,9 +87,10 @@ function init(){
 	}
 	$(".minesweeper-col").css({"height":height,"width":width});
 	$(".minesweeper-row").css({"height":height,"width":width*num_cols});
-	$("#minesweeper_container").css({"width":width*num_cols+2});
-	$("#buttonsContainer").css({"width":width*num_cols+2});
-	$("#infoButton").css({"right":Math.floor(($(window).width()-(width*num_cols+2))*.5)});
+	$("#gameContainer").css("width",width*num_cols+2);
+	// $("#minesweeper_container").css({"width":width*num_cols+2});
+	// $("#buttonsContainer").css({"width":width*num_cols+2});
+	// $("#infoButton").css({"right":Math.floor(($(window).width()-(width*num_cols+2))*.5)});
 	//init sq class
 	for(var i=0; i<num_rows; i++){
 		sq_arr.push([]);
@@ -112,6 +114,10 @@ function init(){
 		sq_arr[i][j].makeBmb();
 	}
 }
+function updateProgressBar(){
+	var width = $("#minesweeper-progress").parent().width() * nonBmbsFound/(num_cols*num_rows-totalBmbs);
+	$("#minesweeper-progress").animate({"width":width},500);
+}
 function restart(){
 	$("#GameStartButton").attr("disabled",true);
 	var highestTimeoutId = setTimeout(";");
@@ -123,6 +129,7 @@ function restart(){
 	$("#minesweeper_container").empty();
 	sq_arr=[];
 	init();
+	updateProgressBar();
 	$(".loading-cover").fadeOut();
 	$("#GameStartButton").removeAttr("disabled");
 	$("#giveUpButton").removeAttr("disabled");
