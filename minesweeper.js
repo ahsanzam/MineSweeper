@@ -135,7 +135,7 @@ function restart(){
 	$("#giveUpButton").removeAttr("disabled");
 }
 document.onkeydown = function (e) {
-	console.log("keydown",e)
+	if(e.key === "Escape") closeOverlays();
 }
 function giveUp(fromGameEnd){
 	$("#giveUpButton").tooltip('hide');
@@ -161,6 +161,7 @@ function runGameEnd(){
 	$("#gameOver").fadeIn();
 	$("#giveUpButton").attr("disabled",true);
 }
+function closeOverlays(){ $(".overlay").fadeOut(); }
 function closeGameOver(){ $("#gameOver").fadeOut(); }
 function showInfo(){ $("#infoContainer").fadeIn(); }
 function closeInfoContainer(){ $("#infoContainer").fadeOut(); }
