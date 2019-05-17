@@ -9,5 +9,4 @@ To run: `./ms`
 
 ### JS Version
 MineSweeper written for the web. Visit index.html to play.
-
-
+![](./assets/demo.gif)
